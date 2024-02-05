@@ -4,7 +4,7 @@
     <script>
       function handleFileInput(fileSelectionEvent) {
         console.clear();
-        const file = fileSelectionEvent.target.file[0];
+        const file = fileSelectionEvent.target.files[0];
           file.arrayBuffer().then(async (opusFileData) => {
           const clickTimes = await parseOpusFile(opusFileData);
           await createJsonOutput(file.name, clickTimes);
