@@ -4,13 +4,11 @@
     <script>
       function handleFileInput(fileSelectionEvent) {
         console.clear();
-        const files = fileSelectionEvent.target.files;
-        files.forEach(file => {
+        const file = fileSelectionEvent.target.file[0];
           file.arrayBuffer().then(async (opusFileData) => {
           const clickTimes = await parseOpusFile(opusFileData);
           await createJsonOutput(file.name, clickTimes);
         });
-        })
       }
           
       async function parseOpusFile(opusFileData) {
