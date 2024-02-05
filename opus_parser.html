@@ -7,7 +7,7 @@
         const file = fileSelectionEvent.target.files[0];
         file.arrayBuffer().then(async (opusFileData) => {
           const clickTimes = await parseOpusFile(opusFileData);
-          await createJsonOutput(file.name.subString(0, file.name.length - 4), clickTimes);
+          await createJsonOutput(file.name, clickTimes);
         });
       }
           
@@ -105,7 +105,7 @@
     </script>
 </head>
 <body onload="onBodyLoaded()">
-  Select opus file: <input type="file" id="file_input" name="file_input" accept=".opus"><br />
+  Select opus file: <input type="file" multiple id="file_input" name="file_input" accept=".opus"><br />
   File Duration: <span id="duration"></span><br />
   Number of beats: <span id="num_beats"></span><br />
 </body>
