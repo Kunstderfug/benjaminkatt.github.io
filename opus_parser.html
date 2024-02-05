@@ -5,10 +5,12 @@
       function handleFileInput(fileSelectionEvent) {
         console.clear();
         const files = fileSelectionEvent.target.files;
-        file.arrayBuffer().then(async (opusFileData) => {
+        files.forEach(file => {
+          file.arrayBuffer().then(async (opusFileData) => {
           const clickTimes = await parseOpusFile(opusFileData);
           await createJsonOutput(file.name, clickTimes);
         });
+        })
       }
           
       async function parseOpusFile(opusFileData) {
