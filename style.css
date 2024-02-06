@@ -96,7 +96,6 @@ canvas {
 
 .beat-number {
   display: flex;
-  //space-between
   align-items: center;
   justify-content: space-between;
   width: 100%;
